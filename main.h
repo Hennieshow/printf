@@ -1,4 +1,4 @@
-#ifndef min_H
+#ifndef main_H
 #define main_H
 
 /* libraries to use */
