@@ -1,34 +1,36 @@
-#ifndef main_H
+#ifndef min_H
 #define main_H
-#include <stdio.h>
-#include <stdarg.h>
 
-int _putchar(char c);
-void print_numbers(const char *separator, const unsigned int n, ...);
-void print_strings(const char *separator, const unsigned int n, ...);
-int _printf(const char *format, ...);
-void print_number(int n, int *count);
+/* libraries to use */
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdarg.h>
+#include <stddef.h>
+#include <string.h>
 
 /**
- * struct vartype - struct vartype
+ * struct pr - struct for operations
+ * @op: operation
+ * @f: to be listed
  *
- * @vartype: type of variable to be printed
- * @f: the function associated
+ * Description: Checks if there's an operation
  */
-
-typedef struct vartype
+typedef struct pr
 {
-	char *vartype;
+	char *op;
 	int (*f)(va_list);
-} var_t;
+} pr_f;
 
-int c_func(va_list args);
-int s_func(va_list args);
-int perc_func(va_list args);
-int i_func(va_list args);
-int d_func(va_list args);
-int b_func(va_list args);
-int rev_func(va_list args);
-int rot_func(va_list args);
-
-#endif /* main_H */
+/* Prototypes */
+int _putchar(char c);
+int _printf(const char *format, ...);
+int print_c(va_list list);
+int print_s(va_list list);
+int print_i(va_list list);
+int print_d(va_list list);
+int print_r(va_list list);
+int print_mod(va_list list);
+int print_d(va_list list);
+int _strlen(char *s);
+int _funcion(const char *format, pr_f ops[], va_list ap);
+#endif
